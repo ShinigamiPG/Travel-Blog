@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script> 
+</head>
+
+<body>
+<div class="index">
+<h1>My travel blog</h1>
+<h2>Destinations</h2>
+<div class="container">
+    <% posts.forEach(post => { %>
+        <a href="/view?titleDest=<%= post.tit %>">
+            <div class="post">
+                <h3><%= post.tit %></h3>
+                <% console.log(post.imagePath) %>
+                <img src=<%= post.imagePath %> alt=<%= post.tit %> height="200">
+            </div>
+        </a>
+    <% }); %> 
+    <a href="/create">
+    <div class="newpost">
+        <h3>+ New Post</h3> 
+    </div>
+    </a>
+</div>
+</div>
+</body>
+
+<%- include("Partials/footer.ejs") %>
+</html>

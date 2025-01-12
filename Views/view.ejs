@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= post.tit %></title>
+</head>
+<body>
+    <div class="bd-example">
+       <img src=<%= post.imagePath %> alt="upload image" class="uploadImg">
+        <form action="/saved" method="POST">
+            <input type="hidden" name="imagePath" value=<%= post.imagePath %>>
+            <input type="hidden" name="uid" value=<%= post.uid %>>
+            <input type="text"  name="imagePathEdit" rows="0.2" placeholder="Paste new image web link">
+        <div class="smallInputs">
+          <div class="form-group mb-3">
+            <label>Place</label>
+            <textarea class="form-control" name="tit" rows="1"><%= post.tit %></textarea>
+          </div>
+          <div class="form-group mb-3">
+            <label>Best time to visit ❄️☀️🍂☔</label>
+            <textarea class="form-control" name="bestTime" rows="1"><%= post.bestTime %></textarea>
+          </div>
+          <div class="form-group mb-3">
+            <label>Location 📍</label>
+            <textarea class="form-control" name="location" rows="1"><%= post.location %></textarea>
+          </div>
+          <div class="form-group mb-3">
+            <label>Food 😋</label>
+            <textarea class="form-control" name="food" rows="1"><%= post.food %></textarea>
+          </div>
+        </div>
+          <div class="form-group mb-3">
+            <label>Sightseeing 👒</label>
+            <textarea class="form-control" name="todo" rows="2"><%= post.todo %></textarea>
+          </div>
+          <div class="form-group">
+            <label>Personal highlights ❤️</label>
+            <textarea class="form-control" name="ph" rows="8"><%= post.ph %></textarea>
+          </div>
+          <input type="submit" value="Save changes">
+        </form>
+        <form action="/deleted" method="POST">
+          <input type="submit" name=<%= post.tit %> value="Delete post">
+        </form>
+        <a href="/">Cancel</a>
+    </div>
+</body>
+<%- include("Partials/footer.ejs") %>
+</html>
