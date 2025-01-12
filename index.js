@@ -17,7 +17,7 @@ app.listen(port, () => {
   });
 
 app.get("/", (req, res) => {
-  res.render("index.ejs", {posts : posts});
+  res.render("index", {posts : posts});
 });
 
 app.get('/view', (req, res) => {
@@ -28,7 +28,7 @@ app.get('/view', (req, res) => {
 });
 
 app.get("/create", (req, res) => {
-  res.render("create.ejs");
+  res.render("create");
 });
 
 app.post("/saved", (req, res) => {
@@ -36,7 +36,7 @@ app.post("/saved", (req, res) => {
   var uidGenerate = Math.floor(1000000000000000*Math.random())
   var input = req.body;
   if(input.tit==''){
-    res.render("index.ejs", {posts: posts})
+    res.render("index", {posts: posts})
   } else{
     console.log("HEREEREEEE!!!"+input.uid)
   let postToSave = posts.find(p => p.uid == input.uid);
@@ -52,7 +52,7 @@ app.post("/saved", (req, res) => {
   }
   posts.push(new Post(uidResolve, input.tit, input.bestTime, input.location, input.food, input.todo, input.ph, imgPathResolve))
   console.log(posts)
-  res.render("index.ejs", {posts: posts});
+  res.render("index" {posts: posts});
 }});
 
 app.post("/deleted", (req, res) => {
@@ -62,6 +62,6 @@ app.post("/deleted", (req, res) => {
   if (index > -1) { // only splice array when item is found
     posts.splice(index, 1); // 2nd parameter means remove one item only
   }
-  res.render("index.ejs", {posts: posts});
+  res.render("index", {posts: posts});
 });
 
