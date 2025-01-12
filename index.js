@@ -13,7 +13,7 @@ app.use(express.static("public"))
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.listen(port, () => {
-    console.log(`Server listening on port ${port}`);
+    //console.log(`Server listening on port ${port}`);
   });
 
 app.get("/", (req, res) => {
@@ -38,9 +38,9 @@ app.post("/saved", (req, res) => {
   if(input.tit==''){
     res.render("index", {posts: posts})
   } else{
-    console.log("HEREEREEEE!!!"+input.uid)
+    //console.log("HEREEREEEE!!!"+input.uid)
   let postToSave = posts.find(p => p.uid == input.uid);
-  console.log(postToSave)
+  //console.log(postToSave)
   if (postToSave !== undefined){
     const index = posts.indexOf(postToSave);
     posts.splice(index, 1); // 2nd parameter means remove one item only
@@ -51,7 +51,7 @@ app.post("/saved", (req, res) => {
     var uidResolve = uidGenerate;
   }
   posts.push(new Post(uidResolve, input.tit, input.bestTime, input.location, input.food, input.todo, input.ph, imgPathResolve))
-  console.log(posts)
+  //console.log(posts)
   res.render("index", {posts: posts});
 }});
 
