@@ -52,7 +52,7 @@ app.post("/saved", (req, res) => {
   }
   posts.push(new Post(uidResolve, input.tit, input.bestTime, input.location, input.food, input.todo, input.ph, imgPathResolve))
   console.log(posts)
-  res.render("index" {posts: posts});
+  res.render("index", {posts: posts});
 }});
 
 app.post("/deleted", (req, res) => {
